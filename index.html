@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome To The Skyline</title>
+  
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .typing-title, .subtitle {
+      font-size: 100px;
+      margin-top: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid rgba(255,255,255,0.5); /* typing cursor */
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .finished-typing {
+      border-right: none !important;
+    }
+
+    .subtitle {
+      font-size: 35px;
+      font-weight: bold;
+      margin: 10px auto;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .link-group {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10%;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+  </style>
+
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Typing containers -->
+  <h1 id="title" class="typing-title"></h1>
+  <p id="subtitle1" class="subtitle" style="color:rgb(21, 255, 0); animation-delay: 0.5s;"></p>
+  <p id="subtitle2" class="subtitle" style="color:rgb(0, 221, 255); animation-delay: 1s;"></p>
+
+  <div style="padding-top: 10%;">
+    <div class="link-group">
+      <a href="page 1.html">Spiral</a>
+      <a href="page 2.html">Pendulum</a>
+    </div>
+    <div class="link-group">
+      <a href="page 3.html">Puzzling Hope</a>
+      <a href="page 4.html">Raining Rectangles</a>
+    </div>
+    <div class="link-group">
+      <a href="page 5.html">Constellations</a>
+      <a href="page 6.html">Melodic</a>
+    </div>
+    <div class="link-group">
+      <a href="page 7.html">Rectangle Recoil</a>
+      <a href="page 8.html">Candy Cane</a>
+    </div>
+  </div>
+
+  <!-- Typing animation script -->
+  <script>
+    const typeText = (elementId, text, speed = 50, callback) => {
+      const element = document.getElementById(elementId);
+      let i = 0;
+      const type = () => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          element.classList.add("finished-typing"); // Remove typing bar
+          if (callback) callback();
+        }
+      };
+      type();
+    };
+
+    window.onload = () => {
+      typeText("title", "Welcome To The Skyline", 100, () => {
+        typeText("subtitle1", "Sketches from MTEC 1201", 50, () => {
+          typeText("subtitle2", "Come Explore!", 50);
+        });
+      });
+    };
+  </script>
+
+  <!-- Your p5 sketch -->
+  <script src="sketch.js"></script>
+</body>
+</html>

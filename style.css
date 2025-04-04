@@ -1,0 +1,90 @@
+html, body {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .typing-title, .subtitle, a {
+    position: relative;
+    z-index: 10;
+  }
+  
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+.typing-title {
+  color: blue;
+  text-align: center;
+  font-size: 500%;
+
+  background-color: rgb(249, 249, 249);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid blue;
+  width: 0;
+  animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30ch } /* adjust depending on how long your text is */
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 45px;
+  font-family: monospace;
+  font-weight: bold; /* This makes it bold */
+  color: rgb(0, 221, 255); /* You can override this inline */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(255,255,255,0.75);
+  width: 0;
+  margin: 0 auto;
+  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+#back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: transparent;
+  color: #4CAF50;
+  text-decoration: none;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000;
+}
+
+#back-button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#back-button {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid white; /* Optional: gives it a border so it's more visible */
+  padding: 8px 12px; /* Optional: adds some spacing */
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
